@@ -9,7 +9,7 @@ export const Container = () => {
   });
 
   return (
-    <div className="artist-container">
+    <div className="container mb-5">
       {loading ? <p>loading...</p> : <Artists data={artists} />}
     </div>
   );

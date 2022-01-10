@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from 'reactstrap';
 
 export const Artists = props => {
   const res = props.data;
@@ -8,9 +9,9 @@ export const Artists = props => {
     })
   return (
   <div className="artists">
-    <h2>Top Artists</h2>
-    <table>
-      <thead>
+    <h2 className="mb-3">Top Artists</h2>
+    <Table>
+    <thead>
         <tr>
           <th>Artist</th>
           <th>Streams</th>
@@ -20,7 +21,7 @@ export const Artists = props => {
       <tbody>
         {artists}
       </tbody>
-    </table>
+    </Table>
 </div>
   )
 }
