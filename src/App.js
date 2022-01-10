@@ -6,10 +6,12 @@ import './App.css';
 
 export const App = () => {
   return (
+    <div className="App">
     <ArtistContextProvider>
       <h1>Streaming Stats</h1>
-      <p>Data from last.fm</p>
+      <p>data from last.fm</p>
       <Container />
     </ArtistContextProvider>
+    </div>
   )
 }

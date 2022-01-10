@@ -4,10 +4,10 @@ export const Artists = props => {
   const res = props.data;
   let artists;
     artists = res.artist.map(artist => {
-      return <Artist name={artist.name} playcount={artist.playcount} listeners={artist.listeners}/>;
+      return <Artist key={artist.name} name={artist.name} playcount={artist.playcount} listeners={artist.listeners}/>;
     })
   return (
-  <div>
+  <div className="artists">
     <h2>Top Artists</h2>
     <table>
       <thead>
@@ -26,11 +26,12 @@ export const Artists = props => {
 }
 
 export const Artist = props => {
+  const intl = new Intl.NumberFormat();
   return (
     <tr>
       <td>{props.name}</td>
-      <td>{props.playcount}</td>
-      <td>{props.listeners}</td>
+      <td>{intl.format(props.playcount)}</td>
+      <td>{intl.format(props.listeners)}</td>
     </tr>
   )
 }

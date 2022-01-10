@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Monsterrat&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  font-family: 'Monsterrat', sans-serif;
   padding: 2em;
+  line-height: 1.3em;
+}
+
+.App {
+  margin: auto;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+}
+
+th, td {
+  padding: 0 1em;
 }
