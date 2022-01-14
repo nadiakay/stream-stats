@@ -8,7 +8,9 @@ export const App = () => {
   return (
     <div className="App">
     <ArtistContextProvider>
-      <h1 className="mb-5">Streaming Stats</h1>
+      <header>
+        <h1>Latest Streaming Stats</h1>
+      </header>
       <Container />
       <p>by <a href='https://github.com/nadiakay'>nadia</a></p>
       <p>data from <a href='https://last.fm'>last.fm</a></p>
