@@ -4,8 +4,10 @@ React app to display popular music artists by streams and listeners. Data from l
 
 Run it the usual way:
 
-clone repo
+clone the repo
 
-npm i
+$ cd stream-stats
 
-npm start
+$ npm i
+
+$ npm start
