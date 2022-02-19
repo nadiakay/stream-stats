@@ -2,12 +2,15 @@
 
 React app to display popular music artists by streams and listeners. Data from last.fm.
 
-Run it the usual way:
+To run:
 
-clone the repo
+```
+git clone https://github.com/nadiakay/stream-stats.git
 
 $ cd stream-stats
 
 $ npm i
 
 $ npm start
+
+```
