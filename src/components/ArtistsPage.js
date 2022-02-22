@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { ArtistContext } from "../context/ArtistContext";
-import { Artists } from "./Artists";
+import { ArtistTable } from "./ArtistTable";
 
-export const Container = props => {
+export const ArtistsPage = props => {
   const { artists, loading, page, setPage, getTopArtists } =
     useContext(ArtistContext);
   useEffect(() => {
@@ -14,7 +14,7 @@ export const Container = props => {
       {loading ? (
         <p>loading...</p>
       ) : (
-        <Artists data={artists} page={page} setPage={setPage} />
+        <ArtistTable data={artists} page={page} setPage={setPage} />
       )}
     </div>
   );

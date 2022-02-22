@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Table } from "reactstrap";
 import { Pager } from "./Pager";
 
-export const Artists = ({ data, page, setPage }) => {
+export const ArtistTable = ({ data, page, setPage }) => {
   const range = [1, 2, 3, 4, 5];
 
   return (
