@@ -15,7 +15,7 @@ export const App = () => {
         <Header />
         <HashRouter>
           <Routes>
-            <Route exact path="/" element={<ArtistsPage page="1" />} />
+            <Route exact path="/" element={<ArtistsPage />} />
           </Routes>
         </HashRouter>
         <Footer />

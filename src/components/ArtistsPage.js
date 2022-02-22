@@ -3,7 +3,7 @@ import { ArtistContext } from "../context/ArtistContext";
 import { ArtistTable } from "./ArtistTable";
 
 export const ArtistsPage = props => {
-  const { artists, loading, page, setPage, getTopArtists } =
+  const { artists, loading, page, handlePager, getTopArtists } =
     useContext(ArtistContext);
   useEffect(() => {
     getTopArtists(page);
@@ -14,7 +14,7 @@ export const ArtistsPage = props => {
       {loading ? (
         <p>loading...</p>
       ) : (
-        <ArtistTable data={artists} page={page} setPage={setPage} />
+        <ArtistTable data={artists} page={page} handlePager={handlePager} />
       )}
     </div>
   );

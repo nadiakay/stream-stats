@@ -4,10 +4,17 @@ export const ArtistContext = createContext();
 
 const API_KEY = "5e7443ce206de81a5b342b82bcd4096b";
 
-const ArtistContextProvider2 = props => {
+const ArtistContextProvider = props => {
   const [artists, setArtists] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+
+  const handlePager = page => {
+    setPage(page);
+    console.log(page);
+    setLoading(true);
+    getTopArtists(page);
+  };
 
   const getTopArtists = page => {
     if (loading)
@@ -26,11 +33,11 @@ const ArtistContextProvider2 = props => {
 
   return (
     <ArtistContext.Provider
-      value={{ artists, loading, page, setPage, getTopArtists }}
+      value={{ artists, loading, page, handlePager, getTopArtists }}
     >
       {props.children}
     </ArtistContext.Provider>
   );
 };
 
-export default ArtistContextProvider2;
+export default ArtistContextProvider;

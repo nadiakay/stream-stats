@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "reactstrap";
 import { Pager } from "./Pager";
 
-export const ArtistTable = ({ data, page, setPage }) => {
+export const ArtistTable = ({ data, page, handlePager }) => {
   const range = [1, 2, 3, 4, 5];
 
   return (
@@ -25,7 +25,7 @@ export const ArtistTable = ({ data, page, setPage }) => {
           ))}
         </tbody>
       </Table>
-      <Pager range={range} page={page} setPage={setPage} />
+      <Pager range={range} page={page} handlePager={handlePager} />
     </div>
   );
 };
