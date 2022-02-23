@@ -8,5 +8,5 @@ export const Footer = () => {
         data from <a href="https://last.fm">last.fm</a>
       </p>
     </footer>
-  );
-};
+  )
+}

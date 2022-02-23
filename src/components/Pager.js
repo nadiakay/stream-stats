@@ -1,22 +1,32 @@
-import { useContext } from "react";
+import { useDispatch } from 'react-redux'
 
-import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
-import { ArtistContext } from "../context/ArtistContext";
+import { setPage } from '../slices/artists'
 
-export const Pager = ({ range, page, handlePager }) => {
-  const { totalPages } = useContext(ArtistContext);
+export const Pager = ({ page, totalPages }) => {
+  const dispatch = useDispatch()
+  var pages = []
+  for (var i = 0; i < totalPages; i++) {
+    pages.push(
+      <option key={i} value={i + 1}>
+        {i + 1}
+      </option>
+    )
+  }
+
   return (
     <div>
-      <Pagination>
-        {range.map((el, index) => (
-          <PaginationItem key={index} active={el === page}>
-            <PaginationLink onClick={() => handlePager(el)}>
-              {el}
-            </PaginationLink>
-          </PaginationItem>
-        ))}
-      </Pagination>
-      <p>Total Pages: {totalPages}</p>
+      <p>
+        Showing page{' '}
+        <select
+          name="pages"
+          id="page-select"
+          value={page}
+          onChange={(e) => dispatch(setPage(e.target.value))}
+        >
+          {pages}
+        </select>{' '}
+        of {totalPages}
+      </p>
     </div>
-  );
-};
+  )
+}

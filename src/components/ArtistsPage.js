@@ -1,28 +1,48 @@
-import React, { useContext, useEffect } from "react";
-import { ArtistContext } from "../context/ArtistContext";
-import { ArtistTable } from "./ArtistTable";
-import { Pager } from "./Pager";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { fetchArtists, artistsSelector } from '../slices/artists'
+import { ArtistTable } from './ArtistTable'
+import { Pager } from './Pager'
+import { UserSearch } from './UserSearch'
 
 export const ArtistsPage = () => {
-  const { artists, loading, page, totalPages, handlePager, getTopArtists } =
-    useContext(ArtistContext);
-  const range = [1, 2, 3, 4, 5];
+  const dispatch = useDispatch()
+  const { user, page, totalPages, loading, hasErrors, artists } =
+    useSelector(artistsSelector)
+
   useEffect(() => {
-    getTopArtists(page);
-    console.log(totalPages);
-  });
+    dispatch(fetchArtists(user, page))
+  }, [dispatch, user, page])
+
+  const renderArtists = () => {
+    if (loading)
+      return (
+        <tr>
+          <td>Loading artists...</td>
+        </tr>
+      )
+    if (hasErrors)
+      return (
+        <tr>
+          <td>Error retrieving artists.</td>
+        </tr>
+      )
+    return <ArtistTable data={artists.artist} page={page}></ArtistTable>
+  }
 
   return (
     <div className="container mb-5">
-      <h2 className="mt-2">Popular Artists</h2>
+      <h2 className="m-5">Top Artists for {user}</h2>
       {loading ? (
         <p>loading...</p>
       ) : (
         <div>
-          <ArtistTable data={artists} page={page} />
-          <Pager range={range} page={page} handlePager={handlePager} />
+          <UserSearch />
+          <Pager page={page} totalPages={totalPages} />
+          {renderArtists()}
         </div>
       )}
     </div>
-  );
-};
+  )
+}

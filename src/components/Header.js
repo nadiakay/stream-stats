@@ -1,7 +1,9 @@
 export const Header = () => {
   return (
     <header>
-      <h1>Scrobble Stats</h1>
+      <h1>
+        <b>Scrobble Stats</b>
+      </h1>
     </header>
-  );
-};
+  )
+}
