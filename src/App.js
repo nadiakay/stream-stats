@@ -16,6 +16,7 @@ export const App = () => {
         <HashRouter>
           <Routes>
             <Route exact path="/" element={<ArtistsPage />} />
+            <Route exact path="/user/:user" element={<ArtistsPage />} />
           </Routes>
         </HashRouter>
         <Footer />

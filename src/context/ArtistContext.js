@@ -8,6 +8,7 @@ const ArtistContextProvider = props => {
   const [artists, setArtists] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState("no");
 
   const handlePager = page => {
     setPage(page);
@@ -24,6 +25,8 @@ const ArtistContextProvider = props => {
         )
         .then(res => {
           setArtists(res.data.artists);
+          setTotalPages(res.data.artists["@attr"].totalPages);
+          console.log(res.data.artists["@attr"].totalPages);
           setLoading(false);
         })
         .catch(err => {
@@ -33,7 +36,7 @@ const ArtistContextProvider = props => {
 
   return (
     <ArtistContext.Provider
-      value={{ artists, loading, page, handlePager, getTopArtists }}
+      value={{ artists, loading, page, totalPages, handlePager, getTopArtists }}
     >
       {props.children}
     </ArtistContext.Provider>
