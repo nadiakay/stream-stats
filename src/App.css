@@ -14,6 +14,24 @@ header {
   padding: 2em;
 }
 
+nav {
+  background-color: #aaa;
+}
+
+nav ul {
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  font-weight: bold;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+}
+
 h1 {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
