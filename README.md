@@ -1,5 +1,7 @@
 # stream-stats
 
+(this package is not maintained)
+
 React app that displays popular music artists by most streams and listeners. Data from last.fm.
 
 To run:
